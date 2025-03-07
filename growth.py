@@ -28,7 +28,7 @@ uploaded_files = st.file_uploader("upload your files(accepts CVS or Excel):", ty
 
 if uploaded_files:
     for file in uploaded_files:
-        file_ext = os.path.splitext(file.name)[-1].Lower()
+        file_ext = os.path.splitext(file.name)[-1].lower()
 
         if file_ext == ".csv":
             df = pd.read_csv(file)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -74,7 +74,7 @@ if uploaded_files:
 
     # Convert the File => CVS to Excel
     st.subheader("Conversion Option")
-    conversion_type =st.radio(f"Convert {file.name} to:", ["CVS" , "Excel"], Key=file.name)
+    conversion_type =st.radio(f"Convert {file.name} to:", ["CVS" , "Excel"], key=file.name)
     if st.button(f"Convert {file.name}"):
         buffer = BytesIO()
         if conversion_type == "CVS":
